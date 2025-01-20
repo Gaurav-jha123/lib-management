@@ -1,6 +1,5 @@
 const Book =  require('../models/book');
 const Author = require('../models/author');
-const author = require('../models/author');
 
 
 const resolvers = {
@@ -10,7 +9,7 @@ const resolvers = {
         authors: async () =>  await Author.find(),
         author: async(parent, args) => await Author.findById(args.id),
     },
-    utation: {
+    Mutation: {
         addBook: async (parent, args) => {
             const book = new Book(args);
             return await book.save();
